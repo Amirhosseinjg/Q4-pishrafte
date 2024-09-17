@@ -1,0 +1,64 @@
+#include <iostream>
+using namespace std;
+
+struct Calculator {
+    float num1; 
+    float num2; 
+
+    float add() {
+        return num1 + num2;
+    }
+
+    float subtract() {
+        return num1 - num2;
+    }
+
+    float multiply() {
+        return num1 * num2;
+    }
+
+    float divide() {
+        if (num2 != 0) {
+            return num1 / num2;
+        } else {
+            cout <<"Warning!"<< endl;
+            return 0;
+        }
+    }
+};
+
+int main() {
+    Calculator calc;
+    char operation;
+    char continueCalc;
+
+    do {
+        cout <<"enter 2 number: ";
+        cin >>calc.num1 >> calc.num2;
+
+        cout <<"enter + or - or * or /):";
+        cin >> operation;
+
+        switch (operation) {
+            case '+':
+                cout <<calc.add()<< endl;
+                break;
+            case '-':
+                cout <<calc.subtract()<< endl;
+                break;
+            case '*':
+                cout <<calc.multiply()<< endl;
+                break;
+            case '/':
+                cout <<calc.divide()<< endl;
+                break;
+            default:
+                cout <<"invalid!"<< endl;
+        }
+
+        cout << "do you want to continue ? (yes/no): ";
+        cin >> continueCalc;
+    } while (continueCalc == 'yes' || continueCalc == 'Yes');
+
+    return 0;
+}
